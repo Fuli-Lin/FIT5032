@@ -15,7 +15,7 @@
           v-for="author in authors"
           :key="author.id"
           :class="{ highlight: author.name === 'George Orwell' }"
-          :style="author.name === 'George Orwell' ? { fontWeight: 'bold', color: 'white' } : {}"
+          :style="author.name === 'George Orwell' ? { fontWeight: 'bold' } : {}"
         >
           {{ author.name }} ({{ author.birthYear }})
         </li>
@@ -26,7 +26,7 @@
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
         <li v-for="author in modernAuthors" :key="author.id" :class="{ highlight: author.name === 'George Orwell' }"
-          :style="author.name === 'George Orwell' ? { fontWeight: 'bold', color: 'white' } : {}">
+          :style="author.name === 'George Orwell' ? { fontWeight: 'bold' } : {}">
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
