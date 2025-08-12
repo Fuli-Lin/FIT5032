@@ -1,7 +1,8 @@
 <script setup>
+import Form from './components/Form.vue'
 import HelloWorld from './components/HelloWorld.vue'
-import JSON from './components/JSON.vue';
-import MyName from './components/MyName.vue';
+import JSON from './components/JSON.vue'
+import MyName from './components/MyName.vue'
 import TheWelcome from './components/TheWelcome.vue'
 </script>
 
@@ -19,7 +20,8 @@ import TheWelcome from './components/TheWelcome.vue'
   <main>
     <TheWelcome />
   </main> -->
-  <JSON/>
+  <!-- <JSON/> -->
+  <Form />
 </template>
 
 <style scoped>
