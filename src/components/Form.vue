@@ -81,7 +81,19 @@
         </form>
       </div>
       <div class="row mt-5" v-if="submittedCards.length">
-        <div class="d-flex flex-wrap justify-content-start">
+        <DataTable :value="submittedCards" tableStyle="min-width: 50rem">
+          <Column field="username" header="Username"></Column>
+          <Column field="password" header="Password"></Column>
+          <Column
+            field="isAustralian"
+            header="Australian Resident"
+            :body="(row) => (row.isAustralian ? 'Yes' : 'No')"
+          ></Column>
+          <Column field="gender" header="Gender"></Column>
+          <Column field="reason" header="Reason"></Column>
+        </DataTable>
+
+        <!-- <div class="d-flex flex-wrap justify-content-start">
           <div
             v-for="(card, index) in submittedCards"
             :key="index"
@@ -99,7 +111,7 @@
               <li class="list-group-item">Reason: {{ card.reason }}</li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
