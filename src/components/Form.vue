@@ -2,7 +2,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto">
-        <h1 class="text-center">User Information Form / Credentials</h1>
+        <h1 class="text-center">User Information Form</h1>
         <form @submit.prevent="submitForm">
           <div class="row mb-3">
             <div class="col-12 col-sm-6">
@@ -60,6 +60,27 @@
             <button type="button" class="btn btn-secondary" @click="clearForm">Clear</button>
           </div>
         </form>
+      </div>
+      <div class="row mt-5" v-if="submittedCards.length">
+        <div class="d-flex flex-wrap justify-content-start">
+          <div
+            v-for="(card, index) in submittedCards"
+            :key="index"
+            class="card m-2"
+            style="width: 18rem"
+          >
+            <div class="card-header">User Information</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Username: {{ card.username }}</li>
+              <li class="list-group-item">Password: {{ card.password }}</li>
+              <li class="list-group-item">
+                Australian Resident: {{ card.isAustralian ? 'Yes' : 'No' }}
+              </li>
+              <li class="list-group-item">Gender: {{ card.gender }}</li>
+              <li class="list-group-item">Reason: {{ card.reason }}</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
