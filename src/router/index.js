@@ -4,6 +4,7 @@ import HomeView from '@/views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import AccessDenied from '../views/AccessDenied.vue'
 import { useAuthStore } from '../stores/auth'
+import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     name: 'about',
     component: AboutView,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/FireLogin',
+    name: 'FireLogin',
+    component: FirebaseSigninView,
   },
 ]
 
