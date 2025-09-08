@@ -6,6 +6,7 @@ import AccessDenied from '../views/AccessDenied.vue'
 import { useAuthStore } from '../stores/auth'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
+import FirebaseLogoutView from '@/views/FirebaseLogoutView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/FireRegister',
     name: 'FireRegister',
     component: FirebaseRegisterView,
+  },
+  {
+    path: '/FireLogout',
+    name: 'FireLogout',
+    component: FirebaseLogoutView,
   },
 ]
 
