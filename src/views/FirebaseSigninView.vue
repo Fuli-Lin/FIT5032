@@ -9,21 +9,27 @@
 import { ref } from 'vue'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
-import { auth } from '@/firebase'
+import { auth, db } from '@/firebase'
+import { doc, getDoc } from 'firebase/firestore'
 
 const email = ref('')
 const password = ref('')
 const router = useRouter()
-const signin = () => {
-  signInWithEmailAndPassword(auth, email.value, password.value)
-    .then((data) => {
-      console.log('Firebase Sign in Successful')
-      router.push('/')
+const signin = async () => {
+  try {
+    const currentuser = await signInWithEmailAndPassword(auth, email.value, password.value)
+    console.log('Firebase Sign in Successful')
+
+    const userDoc = await getDoc(doc(db, 'User', currentuser.user.uid))
+    if (userDoc.exists()) {
       console.log(auth.currentUser)
-    })
-    .catch((error) => {
-      console.log(error.code)
-    })
+      console.log('User role:', userDoc.data().role)
+    }
+
+    router.push('/')
+  } catch (error) {
+    console.error(error.code, error.message)
+  }
 }
 </script>
 
