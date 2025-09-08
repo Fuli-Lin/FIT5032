@@ -11,11 +11,6 @@ const routes = [
     name: 'Home',
     component: HomeView,
   },
-  //   {
-  //     path: '/about',
-  //     name: 'About',
-  //     component: AboutView,
-  //   },
   { path: '/login', name: 'login', component: LoginView },
   { path: '/access-denied', name: 'denied', component: AccessDenied },
   {
