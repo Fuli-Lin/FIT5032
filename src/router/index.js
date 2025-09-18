@@ -7,6 +7,7 @@ import { useAuthStore } from '../stores/auth'
 import FirebaseSigninView from '@/views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '@/views/FirebaseRegisterView.vue'
 import FirebaseLogoutView from '@/views/FirebaseLogoutView.vue'
+import AddBookView from '@/views/AddBookView.vue'
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     name: 'about',
     component: AboutView,
     meta: { requiresAuth: true },
+  },
+  {
+    path: '/addbook',
+    name: 'AddBook',
+    component: AddBookView,
   },
   {
     path: '/FireLogin',
