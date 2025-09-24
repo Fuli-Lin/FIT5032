@@ -47,3 +47,35 @@ exports.countBooks = onRequest((req, res) => {
     }
   })
 })
+
+exports.addBook = onRequest((req, res) => {
+  cors(req, res, async () => {
+    try {
+      if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Only POST allowed' })
+      }
+
+      const { isbn, name } = req.body
+
+      if (!isbn || !name) {
+        return res.status(400).json({ error: 'ISBN and name are required' })
+      }
+
+      // force ISBN to number and name to uppercase
+      const newBook = {
+        isbn: Number(isbn),
+        name: name.toUpperCase(),
+      }
+
+      const docRef = await admin.firestore().collection('books').add(newBook)
+
+      return res.status(201).json({
+        id: docRef.id,
+        ...newBook,
+      })
+    } catch (error) {
+      console.error('Error adding book:', error.message)
+      return res.status(500).json({ error: 'Error adding book' })
+    }
+  })
+})

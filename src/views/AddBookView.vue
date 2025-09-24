@@ -77,6 +77,7 @@ import {
   getDocs,
   doc,
 } from 'firebase/firestore'
+import axios from 'axios'
 
 export default {
   setup() {
@@ -100,8 +101,13 @@ export default {
           return
         }
 
-        await addDoc(collection(db, 'books'), {
-          isbn: isbnNumber,
+        // await addDoc(collection(db, 'books'), {
+        //   isbn: isbnNumber,
+        //   name: name.value,
+        // })
+
+        const response = await axios.post('https://addbook-op3d5ll2wq-uc.a.run.app', {
+          isbn: isbn.value,
           name: name.value,
         })
 
