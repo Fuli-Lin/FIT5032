@@ -1,6 +1,7 @@
 # fit5032-week1
 
 This is FIT5032 course work
+Using Vue
 
 ## Recommended IDE Setup
 
